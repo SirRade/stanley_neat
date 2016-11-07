@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Config">
+      <UniqueIdentifier>{5a3e23aa-a7f9-4819-a7af-399a76d6ad3b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="trait.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="species.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="population.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="organism.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="nnode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="network.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="neatmain.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="neat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="link.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="innovation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="genome.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="experiments.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="trait.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="species.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="population.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="organism.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="nnode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="network.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="neatmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="neat.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="link.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="innovation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="genome.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="experiments.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="p2mpar3bare.ne">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="p2nv.ne">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="p2test.ne">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="params256.ne">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="pole1startgenes">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="pole2_markov.ne">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="pole2startgenes">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="pole2startgenes.original">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="pole2startgenes1">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="pole2startgenes2">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="test.ne">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="xorstartgenes">
+      <Filter>Config</Filter>
+    </None>
+  </ItemGroup>
+</Project>
