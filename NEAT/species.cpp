@@ -71,7 +71,7 @@ bool Species::add_Organism(Organism *o){
 
 Organism *Species::get_champ() {
 	double champ_fitness=-1.0;
-	Organism *thechamp;
+	Organism *thechamp = nullptr;
 	std::vector<Organism*>::iterator curorg;
 
 	for(curorg=organisms.begin();curorg!=organisms.end();++curorg) {

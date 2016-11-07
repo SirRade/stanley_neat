@@ -68,8 +68,8 @@ Population::Population(std::vector<Genome*> genomeList, float power) {
 	highest_last_changed=0;
 		
 	int count;
-	Genome *new_genome;
-	Organism *new_organism;
+	Genome *new_genome = nullptr;
+	Organism *new_organism = nullptr;
 
 	//Create size copies of the Genome
 	//Start with perturbed linkweights
@@ -268,8 +268,8 @@ bool Population::clone(Genome *g,int size, float power) {
 
 bool Population::spawn(Genome *g,int size) {
 	int count;
-	Genome *new_genome;
-	Organism *new_organism;
+	Genome *new_genome = nullptr;
+	Organism *new_organism = nullptr;
 
 	//Create size copies of the Genome
 	//Start with perturbed linkweights
@@ -425,7 +425,7 @@ bool Population::epoch(int generation) {
 	int total_expected;  //precision checking
 	int total_organisms=organisms.size();
 	int max_expected;
-	Species *best_species;
+	Species *best_species = nullptr;
 	int final_expected;
 
 	int pause;

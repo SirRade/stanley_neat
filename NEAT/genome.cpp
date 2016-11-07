@@ -386,16 +386,16 @@ Genome::Genome(int num_in,int num_out,int num_hidden,int type) {
 	std::vector<NNode*> inputs;
 	std::vector<NNode*> outputs;
 	std::vector<NNode*> hidden;
-	NNode *bias; //Remember the bias
+	NNode *bias = nullptr; //Remember the bias
 
 	std::vector<NNode*>::iterator curnode1; //Node iterator1
 	std::vector<NNode*>::iterator curnode2; //Node iterator2
 	std::vector<NNode*>::iterator curnode3; //Node iterator3
 
 	//For creating the new genes
-	NNode *newnode;
-	Gene *newgene;
-	Trait *newtrait;
+	NNode *newnode = nullptr;
+	Gene *newgene = nullptr;
+	Trait *newtrait = nullptr;
 
 	int count;
 	int ncount;
@@ -1344,19 +1344,19 @@ void Genome::mutate_gene_reenable() {
 bool Genome::mutate_add_node(std::vector<Innovation*> &innovs,int &curnode_id,double &curinnov) {
 	std::vector<Gene*>::iterator thegene;  //random gene containing the original link
 	int genenum;  //The random gene number
-	NNode *in_node; //Here are the nodes connected by the gene
-	NNode *out_node; 
-	Link *thelink;  //The link inside the random gene
+	NNode *in_node = nullptr; //Here are the nodes connected by the gene
+	NNode *out_node = nullptr;
+	Link *thelink = nullptr;  //The link inside the random gene
 
 	//double randmult;  //using a gaussian to find the random gene
 
 	std::vector<Innovation*>::iterator theinnov; //For finding a historical match
 	bool done=false;
 
-	Gene *newgene1;  //The new Genes
-	Gene *newgene2;
-	NNode *newnode;   //The new NNode
-	Trait *traitptr; //The original link's trait
+	Gene *newgene1 = nullptr;  //The new Genes
+	Gene *newgene2 = nullptr;
+	NNode *newnode = nullptr;   //The new NNode
+	Trait *traitptr = nullptr; //The original link's trait
 
 	//double splitweight;  //If used, Set to sqrt(oldweight of oldlink)
 	double oldweight;  //The weight of the original link
@@ -1541,13 +1541,13 @@ bool Genome::mutate_add_link(std::vector<Innovation*> &innovs,double &curinnov,i
 	std::vector<NNode*>::iterator thenode1,thenode2;  //Random node iterators
 	int nodecount;  //Counter for finding nodes
 	int trycount; //Iterates over attempts to find an unconnected pair of nodes
-	NNode *nodep1; //Pointers to the nodes
-	NNode *nodep2; //Pointers to the nodes
+	NNode *nodep1 = nullptr; //Pointers to the nodes
+	NNode *nodep2 = nullptr; //Pointers to the nodes
 	std::vector<Gene*>::iterator thegene; //Searches for existing link
 	bool found=false;  //Tells whether an open pair was found
 	std::vector<Innovation*>::iterator theinnov; //For finding a historical match
 	int recurflag; //Indicates whether proposed link is recurrent
-	Gene *newgene;  //The new Gene
+	Gene *newgene = nullptr;  //The new Gene
 
 	int traitnum;  //Random trait finder
 	std::vector<Trait*>::iterator thetrait;
@@ -1820,13 +1820,13 @@ void Genome::mutate_add_sensor(std::vector<Innovation*> &innovs,double &curinnov
 
 	std::vector<NNode*> sensors;
 	std::vector<NNode*> outputs;
-	NNode *node;	
-	NNode *sensor;
-	NNode *output;
-	Gene *gene;
+	NNode *node = nullptr;
+	NNode *sensor = nullptr;
+	NNode *output = nullptr;
+	Gene *gene = nullptr;
 
 	double newweight = 0.0;
-	Gene* newgene;
+	Gene* newgene = nullptr;
 
 	int i,j; //counters
 	bool found;
@@ -2012,19 +2012,19 @@ Genome *Genome::mate_multipoint(Genome *g,int genomeid,double fitness1,double fi
 	std::vector<Gene*>::iterator p2gene;
 	double p1innov;  //Innovation numbers for genes inside parents' Genomes
 	double p2innov;
-	Gene *chosengene;  //Gene chosen for baby to inherit
+	Gene *chosengene = nullptr;  //Gene chosen for baby to inherit
 	int traitnum;  //Number of trait new gene points to
-	NNode *inode;  //NNodes connected to the chosen Gene
-	NNode *onode;
-	NNode *new_inode;
-	NNode *new_onode;
+	NNode *inode = nullptr;  //NNodes connected to the chosen Gene
+	NNode *onode = nullptr;
+	NNode *new_inode = nullptr;
+	NNode *new_onode = nullptr;
 	std::vector<NNode*>::iterator curnode;  //For checking if NNodes exist already 
 	int nodetraitnum;  //Trait number for a NNode
 
 	bool disable;  //Set to true if we want to disabled a chosen gene
 
 	disable=false;
-	Gene *newgene;
+	Gene *newgene = nullptr;
 
 	bool p1better; //Tells if the first genome (this one) has better fitness or not
 
@@ -2303,20 +2303,20 @@ Genome *Genome::mate_multipoint_avg(Genome *g,int genomeid,double fitness1,doubl
 	std::vector<Gene*>::iterator p2gene;
 	double p1innov;  //Innovation numbers for genes inside parents' Genomes
 	double p2innov;
-	Gene *chosengene;  //Gene chosen for baby to inherit
+	Gene *chosengene = nullptr;  //Gene chosen for baby to inherit
 	int traitnum;  //Number of trait new gene points to
-	NNode *inode;  //NNodes connected to the chosen Gene
-	NNode *onode;
-	NNode *new_inode;
-	NNode *new_onode;
+	NNode *inode = nullptr;  //NNodes connected to the chosen Gene
+	NNode *onode = nullptr;
+	NNode *new_inode = nullptr;
+	NNode *new_onode = nullptr;
 
 	std::vector<NNode*>::iterator curnode;  //For checking if NNodes exist already 
 	int nodetraitnum;  //Trait number for a NNode
 
 	//This Gene is used to hold the average of the two genes to be averaged
-	Gene *avgene;
+	Gene *avgene = nullptr;
 
-	Gene *newgene;
+	Gene *newgene = nullptr;
 
 	bool skip;
 
@@ -2645,17 +2645,17 @@ Genome *Genome::mate_singlepoint(Genome *g,int genomeid) {
 	std::vector<Gene*>::iterator p1stop;
 	double p1innov;  //Innovation numbers for genes inside parents' Genomes
 	double p2innov;
-	Gene *chosengene;  //Gene chosen for baby to inherit
+	Gene *chosengene = nullptr;  //Gene chosen for baby to inherit
 	int traitnum;  //Number of trait new gene points to
-	NNode *inode;  //NNodes connected to the chosen Gene
-	NNode *onode;
-	NNode *new_inode;
-	NNode *new_onode;
+	NNode *inode = nullptr;  //NNodes connected to the chosen Gene
+	NNode *onode = nullptr;
+	NNode *new_inode = nullptr;
+	NNode *new_onode = nullptr;
 	std::vector<NNode*>::iterator curnode;  //For checking if NNodes exist already 
 	int nodetraitnum;  //Trait number for a NNode
 
 	//This Gene is used to hold the average of the two genes to be averaged
-	Gene *avgene;
+	Gene *avgene = nullptr;
 
 	int crosspoint; //The point in the Genome to cross at
 	int genecounter; //Counts up to the crosspoint

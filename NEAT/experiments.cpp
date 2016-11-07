@@ -28,9 +28,9 @@ Population *xor_test(int gens) {
     ostringstream *fnamebuf;
     int gen;
  
-    int evals[NEAT::num_runs];  //Hold records for each run
-    int genes[NEAT::num_runs];
-    int nodes[NEAT::num_runs];
+    std::vector<int> evals(NEAT::num_runs);  //Hold records for each run
+    std::vector<int> genes(NEAT::num_runs);
+	std::vector<int> nodes(NEAT::num_runs);
     int winnernum;
     int winnergenes;
     int winnernodes;
@@ -40,10 +40,6 @@ Population *xor_test(int gens) {
     int totalnodes=0;
     int expcount;
     int samples;  //For averaging
-
-    memset (evals, 0, NEAT::num_runs * sizeof(int));
-    memset (genes, 0, NEAT::num_runs * sizeof(int));
-    memset (nodes, 0, NEAT::num_runs * sizeof(int));
 
     ifstream iFile("xorstartgenes",ios::in);
 
@@ -292,11 +288,9 @@ Population *pole1_test(int gens) {
 
     int expcount;
     int status;
-    int runs[NEAT::num_runs];
+    std::vector<int> runs(NEAT::num_runs);
     int totalevals;
     int samples;  //For averaging
-
-    memset (runs, 0, NEAT::num_runs * sizeof(int));
 
     ifstream iFile("pole1startgenes",ios::in);
 
@@ -488,10 +482,10 @@ int go_cart(Network *net,int max_steps,int thresh)
 
    if (random_start) {
      /*set up random start state*/
-     x = (lrand48()%4800)/1000.0 - 2.4;
-     x_dot = (lrand48()%2000)/1000.0 - 1;
-     theta = (lrand48()%400)/1000.0 - .2;
-     theta_dot = (lrand48()%3000)/1000.0 - 1.5;
+     x = (rand()%4800)/1000.0 - 2.4;
+     x_dot = (rand()%2000)/1000.0 - 1;
+     theta = (rand()%400)/1000.0 - .2;
+     theta_dot = (rand()%3000)/1000.0 - 1.5;
     }
    else 
      x = x_dot = theta = theta_dot = 0.0;
@@ -599,13 +593,13 @@ Population *pole2_test(int gens,int velocity) {
 
     //Stat collection variables
     int highscore;
-    int record[NEAT::num_runs][1000];
+	std::vector<std::vector<int>> record(NEAT::num_runs, std::vector<int>(1000));
     double recordave[1000];
-    int genesrec[NEAT::num_runs][1000];
+	std::vector<std::vector<int>> genesrec(NEAT::num_runs, std::vector<int>(1000));
     double genesave[1000];
-    int nodesrec[NEAT::num_runs][1000];
+	std::vector<std::vector<int>> nodesrec(NEAT::num_runs, std::vector<int>(1000));
     double nodesave[1000];
-    int winnergens[NEAT::num_runs];
+	std::vector<int> winnergens(NEAT::num_runs, 0);
     int initcount;
     int champg, champn, winnernum;  //Record number of genes and nodes in champ
     int run;
@@ -628,7 +622,6 @@ Population *pole2_test(int gens,int velocity) {
 	nodesrec[run][initcount]=0;
       }
     }
-    memset (winnergens, 0, NEAT::num_runs * sizeof(int));
 
     char *non_markov_starter="pole2startgenes2";
     char *markov_starter="pole2startgenes1";
@@ -857,7 +850,7 @@ int pole2_epoch(Population *pop,int generation,char *filename,bool velocity,
   bool win=false;
 
   double champ_fitness;
-  Organism *champ;
+  Organism *champ = nullptr;
 
   //double statevals[5]={-0.9,-0.5,0.0,0.5,0.9};
   double statevals[5]={0.05, 0.25, 0.5, 0.75, 0.95};
@@ -1297,12 +1290,12 @@ void CartPole::init(bool randomize)
   last_hundred=false;
 
   /*if (randomize) {
-    state[0] = (lrand48()%4800)/1000.0 - 2.4;
-    state[1] = (lrand48()%2000)/1000.0 - 1;
-    state[2] = (lrand48()%400)/1000.0 - 0.2;
-    state[3] = (lrand48()%400)/1000.0 - 0.2;
-    state[4] = (lrand48()%3000)/1000.0 - 1.5;
-    state[5] = (lrand48()%3000)/1000.0 - 1.5;
+    state[0] = (rand()%4800)/1000.0 - 2.4;
+    state[1] = (rand()%2000)/1000.0 - 1;
+    state[2] = (rand()%400)/1000.0 - 0.2;
+    state[3] = (rand()%400)/1000.0 - 0.2;
+    state[4] = (rand()%3000)/1000.0 - 1.5;
+    state[5] = (rand()%3000)/1000.0 - 1.5;
   }
   else {*/
 
