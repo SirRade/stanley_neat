@@ -1564,7 +1564,7 @@ bool Genome::mutate_add_link(std::vector<Innovation*> &innovs,double &curinnov,i
 	//Note that we check for recursion to control the frequency of
 	//adding recurrent links rather than to prevent any paricular
 	//kind of error
-	int thresh=(nodes.size())*(nodes.size());
+	int thresh(nodes.size()*nodes.size());
 	int count=0;
 
 	//Make attempts to find an unconnected pair
@@ -1686,11 +1686,15 @@ bool Genome::mutate_add_link(std::vector<Innovation*> &innovs,double &curinnov,i
 
 			//See if a link already exists  ALSO STOP AT END OF GENES!!!!
 			thegene=genes.begin();
-			while ((thegene!=genes.end()) && 
-				((nodep2->type)!=SENSOR) &&   //Don't allow SENSORS to get input
-				(!((((*thegene)->lnk)->in_node==nodep1)&&
-				(((*thegene)->lnk)->out_node==nodep2)&&
-				(!(((*thegene)->lnk)->is_recurrent))))) {
+			while (
+					thegene!=genes.end() &&
+					nodep2->type != SENSOR && //Don't allow SENSORS to get input
+					!(
+						(*thegene)->lnk->in_node==nodep1 &&
+						(*thegene)->lnk->out_node==nodep2 &&
+						!(*thegene)->lnk->is_recurrent
+					)
+				) {
 					++thegene;
 				}
 
@@ -1702,8 +1706,8 @@ bool Genome::mutate_add_link(std::vector<Innovation*> &innovs,double &curinnov,i
 					recurflag=phenotype->is_recur(nodep1->analogue,nodep2->analogue,count,thresh);
 
 					//ADDED: CONSIDER connections out of outputs recurrent
-					if (((nodep1->type)==OUTPUT)||
-						((nodep2->type)==OUTPUT))
+					if (nodep1->type==OUTPUT||
+						nodep2->type==OUTPUT)
 						recurflag=true;
 
 					//Exit if the network is faulty (contains an infinite loop)
