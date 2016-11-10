@@ -130,7 +130,7 @@ int main(int argc, char *argv[]) {
 
   if (p)
     delete p;
-
+  cin >> choice;
   return(0);
  
 }
