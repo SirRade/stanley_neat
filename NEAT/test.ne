@@ -30,4 +30,4 @@ dropoff_age 15
 newlink_tries 20
 print_every 30
 babies_stolen 0
-num_runs 100
+num_runs 1
