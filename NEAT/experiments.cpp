@@ -625,7 +625,7 @@ Population *pole2_test(int gens,int velocity) {
 
     char *non_markov_starter="pole2startgenes2";
     char *markov_starter="pole2startgenes1";
-    char *startstring;
+    char *startstring = nullptr;
 
     if (velocity==0) startstring=non_markov_starter;
     else if (velocity==1) startstring=markov_starter;
